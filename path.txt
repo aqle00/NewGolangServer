@@ -1,0 +1,49 @@
+echo $PATH
+
+/home/quoc48/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand
+:/home/quoc48/.vscode-server/data/User/globalStorage/github.copilot-chat/copilotCli
+:/home/quoc48/.vscode-server/bin/5264f2156cbcd7aea5fd004d29eaa10209155d66/bin/remote-cli
+:/home/quoc48/.local/bin
+:/home/quoc48/go/bin
+:/home/quoc48/.local/opt/go/bin
+:/home/quoc48/.local/bin
+:/usr/local/sbin
+:/usr/local/bin
+:/usr/sbin
+:/usr/bin
+:/sbin
+:/bin
+:/usr/games
+:/usr/local/games
+:/usr/lib/wsl/lib
+:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/java8path
+:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath
+:/mnt/c/windows/system32
+:/mnt/c/windows
+:/mnt/c/windows/system32/wbem
+:/mnt/c/windows/system32/windowspowershell/v1.0/
+:/mnt/c/windows/system32/openssh/
+:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common
+:/mnt/c/Program Files/dotnet/
+:/mnt/d/Process Lasso/
+:/mnt/c/WINDOWS/system32
+:/mnt/c/WINDOWS
+:/mnt/c/WINDOWS/System32/Wbem
+:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/
+:/mnt/c/WINDOWS/System32/OpenSSH/
+:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA App/NvDLISR
+:/mnt/c/Program Files/Git/cmd
+:/mnt/c/Program Files/Cloudflare/Cloudflare WARP/
+:/mnt/c/Users/User/go/bin
+:/mnt/c/Users/User/.local/opt/go/bin
+:/mnt/c/Users/User/.local/bin
+:/mnt/c/Users/User/AppData/Local/Programs/Python/Launcher/
+:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps
+:/mnt/c/Users/User/AppData/Local/Programs/Microsoft VS Code/bin
+:/mnt/c/Users/User/AppData/Local/Microsoft/WindowsApps
+:/mnt/c/Users/User/AppData/Local/Programs/Python/Python313/
+:/mnt/c/Users/User/AppData/Local/Programs/Zed/bin
+:/snap/bin
+:/home/quoc48/worldbanc/private/bin
+:/home/quoc48/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/bundled/scripts/noConfigScripts
+:/home/quoc48/worldbanc/private/bin
