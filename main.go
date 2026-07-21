@@ -27,9 +27,10 @@ func main() {
 	//StripPrefix() srtips /app, so the pattern is removed from the file path returned from calling .FileServer()
 	// but the pattern on the web is still /app/, so the user has to use that endpoing instead of /
 	mux.Handle("/app/", apiCfg.middlewareMetricsInc((http.StripPrefix("/app", http.FileServer(http.Dir(filepathRoot))))))
-	mux.HandleFunc("GET /healthz", handleReadiness)
-	mux.HandleFunc("GET /metrics", http.HandlerFunc(apiCfg.handlerMetrics))
-	mux.HandleFunc("POST /reset", http.HandlerFunc(apiCfg.handlerResetHits))
+	mux.HandleFunc("GET /api/healthz", handleReadiness)
+	mux.HandleFunc("GET /admin/metrics", http.HandlerFunc(apiCfg.handlerMetrics))
+	mux.HandleFunc("POST /admin/reset", http.HandlerFunc(apiCfg.handlerResetHits))
+	mux.HandleFunc("POST /api/validate_chirp", handlerValidateChirp)
 
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ==================================
 
