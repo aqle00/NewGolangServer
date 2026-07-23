@@ -46,7 +46,10 @@ func badWordFilter(s string) string {
 		"fornax":    {},
 	}
 
-	//split string into words []string
+	//split
+	// s string
+	//into
+	// words []string
 	words := strings.Split(s, " ")
 
 	// loop through wordsMap to check if an input word is a bad word, replace with **** if so
@@ -55,7 +58,7 @@ func badWordFilter(s string) string {
 			words[i] = "****"
 		}
 	}
-	// after loop, the words []string variable now contains filtered versions of bad words at the indexes of replaced bad words
+	// after loop, the slice of string words []string  now contains filtered versions of bad words at the indexes of replaced bad words
 	// join the []string into 1 string, with a space " " as seperator between the words
 	cleanedString := strings.Join(words, " ")
 	return cleanedString

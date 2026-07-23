@@ -1,20 +1,40 @@
 package main
 
 import (
+	"database/sql"
 	"log"
 	"net/http"
+	"os"
 	"sync/atomic"
+
+	"github.com/aqle00/NewGolangServer.git/internal/database"
+	"github.com/joho/godotenv"
+	_ "github.com/lib/pq"
 )
 
 type apiConfig struct {
+	platform       string
 	fileserverHits atomic.Int32
+	db             *database.Queries
 }
 
 func main() {
+	godotenv.Load()
+	dbURL := os.Getenv("DB_URL")
+	db, err := sql.Open("postgres", dbURL)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	dbQueries := database.New(db)
+
 	const filepathRoot = "."
 	const port = "8080"
+
 	var apiCfg = apiConfig{
+		platform:       os.Getenv("PLATFORM"),
 		fileserverHits: atomic.Int32{},
+		db:             dbQueries,
 	}
 
 	//a ServeMux is basically just a handler that maps a url endpoint to a handler function
@@ -29,10 +49,10 @@ func main() {
 	mux.Handle("/app/", apiCfg.middlewareMetricsInc((http.StripPrefix("/app", http.FileServer(http.Dir(filepathRoot))))))
 	mux.HandleFunc("GET /api/healthz", handleReadiness)
 	mux.HandleFunc("GET /admin/metrics", http.HandlerFunc(apiCfg.handlerMetrics))
-	mux.HandleFunc("POST /admin/reset", http.HandlerFunc(apiCfg.handlerResetHits))
+	mux.HandleFunc("POST /admin/reset", http.HandlerFunc(apiCfg.handlerReset))
+	mux.HandleFunc("POST /admin/resethits", http.HandlerFunc(apiCfg.handlerResetHits))
 	mux.HandleFunc("POST /api/validate_chirp", handlerValidateChirp)
-
-	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ==================================
+	mux.HandleFunc("POST /api/users", apiCfg.handlerCreateUser)
 
 	//make server
 	srv := &http.Server{

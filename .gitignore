@@ -2,4 +2,7 @@
 out
 path.txt
 skills-lock.json
-
+postgres_connection_string.txt
+.env
+NewGolangServer.git
+instructions.md
